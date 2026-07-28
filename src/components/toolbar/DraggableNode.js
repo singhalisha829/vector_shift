@@ -1,6 +1,6 @@
 // draggableNode.js
 
-export const DraggableNode = ({ type, label }) => {
+export const DraggableNode = ({ type, label, icon, color = "#6366F1" }) => {
   const onDragStart = (event, nodeType) => {
     const appData = { nodeType };
     event.target.style.cursor = "grabbing";
@@ -13,26 +13,21 @@ export const DraggableNode = ({ type, label }) => {
 
   return (
     <div
-      className={type}
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = "grab")}
-      style={{
-        cursor: "grab",
-        minWidth: "80px",
-        height: "60px",
-        display: "flex",
-        alignItems: "center",
-        borderRadius: "8px",
-        backgroundColor: "#1C2536",
-        justifyContent: "center",
-        flexDirection: "column",
-      }}
+      className="flex cursor-grab items-center gap-2 p-2 rounded-md hover:bg-primary-1/2 border-1 border-primary-1/2"
       draggable
       tabIndex={0}
       role="button"
       aria-label={`Add ${label} node to canvas`}
     >
-      <span style={{ color: "#fff" }}>{label}</span>
+      <div
+        className="w-[26px] h-[26px] flex justify-center items-center rounded-[6px] text-white font-bold"
+        style={{ background: color }}
+      >
+        {icon}
+      </div>
+      <span className="text-text font-medium">{label}</span>
     </div>
   );
 };

@@ -2,26 +2,31 @@
 
 import { DraggableNode } from "./DraggableNode";
 
+const NODE_CONFIG = [
+  { type: "customInput", label: "Input", icon: "→", color: "#10B981" },
+  { type: "customOutput", label: "Output", icon: "←", color: "#3B82F6" },
+  { type: "text", label: "Text", icon: "T", color: "#F59E0B" },
+  { type: "llm", label: "LLM", icon: "⬡", color: "#8B5CF6" },
+  { type: "delay", label: "Delay", icon: "✎", color: "#EC4899" },
+  { type: "condition", label: "Condition", icon: "◈", color: "#06B6D4" },
+  { type: "math", label: "Math", icon: "◎", color: "#14B8A6" },
+  { type: "api", label: "API", icon: "⇄", color: "#6366F1" },
+  { type: "translator", label: "Translator", icon: "⇄", color: "#6366F1" },
+];
+
 export const PipelineToolbar = () => {
   return (
-    <div style={{ padding: "10px" }}>
-      <div
-        style={{
-          marginTop: "20px",
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "10px",
-        }}
-      >
-        <DraggableNode type="customInput" label="Input" />
-        <DraggableNode type="llm" label="LLM" />
-        <DraggableNode type="customOutput" label="Output" />
-        <DraggableNode type="text" label="Text" />
-        <DraggableNode type="delay" label="Delay" />
-        <DraggableNode type="condition" label="Condition" />
-        <DraggableNode type="math" label="Math" />
-        <DraggableNode type="api" label="API" />
-        <DraggableNode type="translator" label="Translator" />
+    <div className="px-[14px] py-[10px] flex-1">
+      <div className="mt-[20px] flex flex-col flex-wrap gap-[10px]">
+        {NODE_CONFIG.map((node) => (
+          <DraggableNode
+            key={node.type}
+            type={node.type}
+            label={node.label}
+            icon={node.icon}
+            color={node.color}
+          />
+        ))}
       </div>
     </div>
   );

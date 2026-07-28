@@ -17,7 +17,7 @@ const BaseNode = ({ id, title, fields = [], handles = [], children }) => {
   };
 
   return (
-    <div style={{ width: 200, height: 80, border: "1px solid black" }}>
+    <div className="bg-white relative rounded-md shadow-md p-4">
       {/* title */}
       <div>{title}</div>
 
