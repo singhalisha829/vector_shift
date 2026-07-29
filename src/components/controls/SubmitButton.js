@@ -31,7 +31,7 @@ export const SubmitButton = () => {
   };
 
   return (
-    <div className="p-4 border-t-1 border-primary-1/2">
+    <div className="p-4 border-t border-1 border-primary-70">
       <button
         className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-600"
         type="submit"

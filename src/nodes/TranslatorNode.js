@@ -1,5 +1,8 @@
 import BaseNode from "../nodes/BaseNode";
 import { Position } from "reactflow";
+import { NODE_CONFIG_MAP } from "../constant/nodeConstants";
+
+const { icon, color } = NODE_CONFIG_MAP.translator;
 
 const LANGUAGES = [
   { name: "Auto Detect", value: "Auto Detect" },
@@ -36,5 +39,7 @@ export const TranslatorNode = ({ id, data }) => (
       { type: "target", position: Position.Left, id: `${id}-input` },
       { type: "source", position: Position.Right, id: `${id}-output` },
     ]}
+    icon={icon}
+    color={color}
   />
 );

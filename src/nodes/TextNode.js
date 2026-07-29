@@ -2,6 +2,9 @@
 
 import { Position } from "reactflow";
 import BaseNode from "./BaseNode";
+import { NODE_CONFIG_MAP } from "../constant/nodeConstants";
+
+const { icon, color } = NODE_CONFIG_MAP.text;
 
 export const TextNode = ({ id, data }) => (
   <BaseNode
@@ -16,5 +19,7 @@ export const TextNode = ({ id, data }) => (
       },
     ]}
     handles={[{ type: "source", position: Position.Right, id: `${id}-output` }]}
+    icon={icon}
+    color={color}
   />
 );

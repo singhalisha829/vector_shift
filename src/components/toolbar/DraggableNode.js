@@ -15,7 +15,8 @@ export const DraggableNode = ({ type, label, icon, color = "#6366F1" }) => {
     <div
       onDragStart={(event) => onDragStart(event, type)}
       onDragEnd={(event) => (event.target.style.cursor = "grab")}
-      className="flex cursor-grab items-center gap-2 p-2 rounded-md hover:bg-primary-1/2 border-1 border-primary-1/2"
+      className="flex cursor-grab items-center gap-2 p-2 rounded-md bg-primary-80
+      hover:bg-primary border border-1 border-primary-70"
       draggable
       tabIndex={0}
       role="button"

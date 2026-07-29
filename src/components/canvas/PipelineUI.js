@@ -5,6 +5,7 @@
 import { useState, useRef, useCallback } from "react";
 import ReactFlow, { Controls, Background, MiniMap } from "reactflow";
 import { useStore } from "../../store/usePipelineStore";
+import { NODE_CONFIG } from "../../constant/nodeConstants";
 import { shallow } from "zustand/shallow";
 import { InputNode } from "../../nodes/InputNode";
 import { LLMNode } from "../../nodes/LlmNode";
@@ -20,6 +21,9 @@ import "reactflow/dist/style.css";
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
+const NODE_COLOR_MAP = Object.fromEntries(
+  NODE_CONFIG.map(({ type, color }) => [type, `${color}80`]),
+);
 const nodeTypes = {
   customInput: InputNode,
   llm: LLMNode,
@@ -120,20 +124,7 @@ export const PipelineUI = () => {
           <Background color="#CBD5E1" gap={gridSize} />
           <Controls />
           <MiniMap
-            nodeColor={(node) => {
-              const colors = {
-                customInput: "#10B98180",
-                customOutput: "#3B82F680",
-                text: "#F59E0B80",
-                llm: "#8B5CF680",
-                prompt: "#EC489980",
-                memory: "#06B6D480",
-                context: "#14B8A680",
-                translator: "#6366F180",
-                agent: "#EF444480",
-              };
-              return colors[node.type] || "#94A3B81A";
-            }}
+            nodeColor={(node) => NODE_COLOR_MAP[node.type] ?? "#94A3B81A"}
             maskColor="rgba(241, 245, 249, 0.7)"
           />{" "}
         </ReactFlow>

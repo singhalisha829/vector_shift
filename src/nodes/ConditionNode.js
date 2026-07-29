@@ -1,5 +1,8 @@
 import BaseNode from "../nodes/BaseNode";
 import { Position } from "reactflow";
+import { NODE_CONFIG_MAP } from "../constant/nodeConstants";
+
+const { icon, color } = NODE_CONFIG_MAP.condition;
 
 export const ConditionNode = ({ id, data }) => (
   <BaseNode
@@ -40,5 +43,7 @@ export const ConditionNode = ({ id, data }) => (
         style: { top: `${200 / 3}%` },
       },
     ]}
+    icon={icon}
+    color={color}
   />
 );

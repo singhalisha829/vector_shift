@@ -1,5 +1,8 @@
 import BaseNode from "../nodes/BaseNode";
 import { Position } from "reactflow";
+import { NODE_CONFIG_MAP } from "../constant/nodeConstants";
+
+const { icon, color } = NODE_CONFIG_MAP.api;
 
 export const ApiNode = ({ id, data }) => (
   <BaseNode
@@ -29,5 +32,7 @@ export const ApiNode = ({ id, data }) => (
       { type: "target", position: Position.Left, id: `${id}-input` },
       { type: "source", position: Position.Right, id: `${id}-output` },
     ]}
+    icon={icon}
+    color={color}
   />
 );
