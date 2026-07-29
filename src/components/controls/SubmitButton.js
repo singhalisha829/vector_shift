@@ -33,7 +33,10 @@ export const SubmitButton = () => {
   return (
     <div className="p-4 border-t border-1 border-primary-70">
       <button
-        className="w-full bg-primary text-white py-2 px-4 rounded-md hover:bg-primary-600"
+        className="w-full px-0 py-2.5 bg-gradient-to-br from-[#6366F1] to-[#513DD9] 
+        text-white border-0 rounded-lg text-[13px] font-bold 
+        cursor-pointer tracking-[0.03em] transition-opacity transition-transform duration-150 
+        active:scale-95 hover:opacity-90"
         type="submit"
         onClick={handleSubmit}
       >

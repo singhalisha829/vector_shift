@@ -8,6 +8,7 @@ const BaseNode = ({
   handles = [],
   children,
   icon,
+  width = 220,
   color = "#6366F1",
 }) => {
   const [values, setValues] = useState(
@@ -25,17 +26,14 @@ const BaseNode = ({
   };
 
   return (
-    <div className="bg-white relative rounded-md shadow-md">
+    <div className="bg-white relative rounded-md shadow-md" style={{ width }}>
       {/* title */}
       <div
         className="flex items-center gap-2 p-2 text-white rounded-t-md"
         style={{ background: color }}
       >
         {icon && (
-          <span
-            className="w-[18px] h-[18px] flex items-center justify-center rounded-md "
-            style={{ backgroundColor: `${color}CC` }}
-          >
+          <span className="w-[18px] h-[18px] flex items-center justify-center">
             {icon}
           </span>
         )}
